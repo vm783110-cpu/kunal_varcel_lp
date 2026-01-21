@@ -2,102 +2,325 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Radhika - Landing Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Telugu trader's radhika</title>
+
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
-    body{background:#0b1220;color:#fff;}
-    .container{max-width:420px;margin:auto;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:18px;}
-    .card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:18px;padding:18px;backdrop-filter: blur(10px);}
-    .top{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
-    .avatar{width:62px;height:62px;border-radius:50%;border:2px solid rgba(255,255,255,0.25);object-fit:cover;}
-    .name{font-size:18px;font-weight:700;}
-    .tag{font-size:12px;opacity:.85;margin-top:3px;}
-    .headline{font-size:20px;font-weight:800;line-height:1.2;margin:10px 0 8px;}
-    .sub{font-size:13px;opacity:.85;margin-bottom:14px;line-height:1.4;}
-    .badge{display:inline-block;background:rgba(0,255,170,0.12);border:1px solid rgba(0,255,170,0.25);padding:6px 10px;border-radius:999px;font-size:12px;margin-bottom:10px;}
-    .form{display:flex;flex-direction:column;gap:10px;margin-top:10px;}
-    input{width:100%;padding:12px 12px;border-radius:12px;border:1px solid rgba(255,255,255,0.16);background:rgba(0,0,0,0.25);color:#fff;outline:none;}
-    input::placeholder{color:rgba(255,255,255,0.6);}
-    .btn{width:100%;padding:13px;border:none;border-radius:14px;font-weight:800;cursor:pointer;}
-    .btn-primary{background:#00d084;color:#071014;}
-    .btn-primary:hover{opacity:.95;}
-    .btn-wa{background:#25D366;color:#071014;}
-    .btn-tg{background:#229ED9;color:#071014;}
-    .small{font-size:11px;opacity:.75;margin-top:10px;text-align:center;}
-    .footer{margin-top:14px;text-align:center;font-size:12px;opacity:.7;}
-    .divider{height:1px;background:rgba(255,255,255,0.12);margin:14px 0;}
+    :root{
+      --bg:#0b0f14;
+      --card:#1b1f25;
+      --card2:#20262e;
+      --text:#e9eef5;
+      --muted:#aab4c0;
+      --yellow:#f7c400;
+      --green:#20e08a;
+      --blue1:#19a7ff;
+      --blue2:#2f6bff;
+      --stroke:rgba(255,255,255,0.10);
+      --shadow: 0 20px 60px rgba(0,0,0,0.55);
+    }
+
+    *{box-sizing:border-box; margin:0; padding:0;}
+    body{
+      min-height:100vh;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.06), transparent 40%),
+                  linear-gradient(180deg, #06080c, #0b0f14);
+      display:flex;
+      justify-content:center;
+      padding:22px 14px;
+    }
+
+    /* background hex pattern */
+    body:before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size:40px 40px;
+      opacity:0.08;
+      pointer-events:none;
+      mask-image: radial-gradient(circle at 50% 0%, black 0%, transparent 65%);
+    }
+
+    .wrap{
+      width:100%;
+      max-width:430px;
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border:1px solid var(--stroke);
+      border-radius:22px;
+      padding:26px 18px 20px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+      backdrop-filter: blur(6px);
+    }
+
+    .topPhoto{
+      width:92px;
+      height:92px;
+      border-radius:50%;
+      margin:0 auto 12px;
+      border:4px solid var(--yellow);
+      overflow:hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .topPhoto img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .titleRow{
+      text-align:center;
+      margin-top:6px;
+      position:relative;
+    }
+
+    .crown{
+      font-size:28px;
+      color:var(--yellow);
+      opacity:0.95;
+      position:absolute;
+      top:8px;
+    }
+    .crown.left{ left:10px; }
+    .crown.right{ right:10px; }
+
+    h1{
+      font-size:34px;
+      line-height:1.05;
+      letter-spacing:0.3px;
+      color:var(--yellow);
+      font-weight:800;
+      text-transform:none;
+      margin:0 40px;
+    }
+
+    .trusted{
+      margin:12px auto 18px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:8px;
+      color:var(--muted);
+      font-size:16px;
+    }
+    .trusted .tick{
+      width:20px; height:20px;
+      border-radius:50%;
+      background:rgba(32,224,138,0.16);
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(32,224,138,0.35);
+      color:var(--green);
+      font-weight:900;
+    }
+
+    .pillRow{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      margin-bottom:18px;
+    }
+    .pill{
+      flex:1;
+      max-width:165px;
+      text-align:center;
+      padding:12px 14px;
+      border-radius:14px;
+      background: rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+      color:#e9eef5;
+      font-weight:700;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    /* MAIN BLINK BUTTON */
+    .cta{
+      margin:12px 0 18px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .btn{
+      width:100%;
+      border:none;
+      cursor:pointer;
+      border-radius:18px;
+      padding:16px 16px;
+      font-size:20px;
+      font-weight:800;
+      color:white;
+      background: linear-gradient(90deg, var(--blue1), var(--blue2));
+      box-shadow: 0 14px 30px rgba(46,118,255,0.35);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      position:relative;
+      overflow:hidden;
+
+      /* blinking animation */
+      animation: blinkGlow 0.75s infinite;
+    }
+
+    .btn:before{
+      content:"";
+      position:absolute;
+      inset:-30%;
+      background: radial-gradient(circle, rgba(255,255,255,0.55), transparent 55%);
+      transform: translateX(-120%) rotate(15deg);
+      animation: shine 1.2s infinite;
+      opacity:0.35;
+    }
+
+    @keyframes blinkGlow{
+      0%{
+        transform: scale(1);
+        filter: brightness(1);
+        box-shadow: 0 14px 30px rgba(46,118,255,0.35);
+      }
+      50%{
+        transform: scale(1.04);
+        filter: brightness(1.35);
+        box-shadow: 0 0 0 6px rgba(46,118,255,0.18),
+                    0 18px 45px rgba(46,118,255,0.55);
+      }
+      100%{
+        transform: scale(1);
+        filter: brightness(1);
+        box-shadow: 0 14px 30px rgba(46,118,255,0.35);
+      }
+    }
+
+    @keyframes shine{
+      0%{ transform: translateX(-140%) rotate(15deg); }
+      100%{ transform: translateX(140%) rotate(15deg); }
+    }
+
+    .btn small{
+      font-weight:700;
+      opacity:0.95;
+    }
+
+    .feature{
+      margin-top:14px;
+      background: rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:16px;
+      padding:14px 14px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#dfe7f2;
+      font-weight:650;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.22);
+    }
+    .feature .ok{
+      width:22px;
+      height:22px;
+      border-radius:50%;
+      background: rgba(32,224,138,0.18);
+      border:1px solid rgba(32,224,138,0.45);
+      color:var(--green);
+      display:grid;
+      place-items:center;
+      font-weight:900;
+    }
+
+    .bottomText{
+      margin-top:24px;
+      text-align:center;
+      font-weight:900;
+      letter-spacing:0.5px;
+      line-height:1.15;
+      font-size:34px;
+    }
+    .bottomText .green{ color: #18f39a; }
+    .bottomText .blue{ color: #39a6ff; }
+    .bottomText .white{ color: #eaf2ff; }
+
+    .subBrand{
+      margin-top:6px;
+      text-align:center;
+      font-size:34px;
+      font-weight:900;
+      color:#2aa7ff;
+    }
+
+    /* Mobile spacing */
+    @media(max-width:380px){
+      h1{ font-size:30px; }
+      .bottomText{ font-size:30px; }
+      .subBrand{ font-size:30px; }
+    }
   </style>
 </head>
+
 <body>
-  <div class="container">
+  <div class="wrap">
     <div class="card">
 
-      <div class="top">
-        <img src="profile.jpg" class="avatar" alt="profile" />
-        <div>
-          <div class="name">Radhika</div>
-          <div class="tag">Official Landing Page</div>
-        </div>
+      <div class="topPhoto">
+        <!-- yaha apni image ka name rakh: profile.jpg -->
+        <img src="profile.jpg" alt="Radhika">
       </div>
 
-      <div class="badge">🔥 Limited Time Offer</div>
-      <div class="headline">Get Free Consultation / Demo Now</div>
-      <div class="sub">
-        Apna naam aur number fill karo, hum aapko call/WhatsApp par details bhej denge.
+      <div class="titleRow">
+        <div class="crown left">👑</div>
+        <div class="crown right">👑</div>
+
+        <h1>Telugu trader's<br/>radhika™</h1>
       </div>
 
-      <form class="form" id="leadForm">
-        <input type="text" id="name" placeholder="Enter Your Name" required />
-        <input type="tel" id="phone" placeholder="Enter Your Mobile Number" required />
-        <button class="btn btn-primary" type="submit">Submit & Get Details</button>
-      </form>
+      <div class="trusted">
+        <div class="tick">✓</div>
+        <div>Trusted by thousands of learners</div>
+      </div>
 
-      <div class="divider"></div>
+      <div class="pillRow">
+        <div class="pill">24/7 Updates</div>
+        <div class="pill">Free to Join</div>
+      </div>
 
-      <button class="btn btn-wa" onclick="openWhatsApp()">📲 WhatsApp Now</button>
-      <div style="height:10px"></div>
-      <button class="btn btn-tg" onclick="openTelegram()">📩 Join Telegram</button>
+      <div class="cta">
+        <!-- yaha apna telegram link daal -->
+        <a class="btn" href="https://t.me/YOUR_CHANNEL" target="_blank" rel="noopener">
+          <span style="font-size:22px;">📩</span>
+          <span>Join on Telegram</span>
+        </a>
+      </div>
 
-      <div class="small">By submitting, you agree to be contacted.</div>
+      <div class="feature">
+        <div class="ok">✓</div>
+        <div>Market Insights &amp; Discussions</div>
+      </div>
+
+      <div class="feature">
+        <div class="ok">✓</div>
+        <div>Learn with Experts</div>
+      </div>
+
+      <div class="feature">
+        <div class="ok">✓</div>
+        <div>Practical Strategies</div>
+      </div>
+
+      <div class="bottomText">
+        ⚡ <span class="green">Stay Ahead with</span><br/>
+        <span class="green">Knowledge</span> ⚡ <span class="white">Ads by</span><br/>
+        <span class="blue">ADSHIP DIGITAL AGENCY</span>
+      </div>
 
     </div>
-
-    <div class="footer">Powered by Vercel</div>
   </div>
-
-  <script>
-    // 🔥 CHANGE THIS WHATSAPP NUMBER (with country code)
-    const WHATSAPP_NUMBER = "91XXXXXXXXXX";
-
-    // 🔥 CHANGE TELEGRAM LINK
-    const TELEGRAM_LINK = "https://t.me/yourchannel";
-
-    function openWhatsApp(){
-      const name = document.getElementById("name").value || "Hi";
-      const phone = document.getElementById("phone").value || "";
-      const msg = `Hello, I'm ${name}. My number is ${phone}. I want details.`;
-      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-      window.open(url, "_blank");
-    }
-
-    function openTelegram(){
-      window.open(TELEGRAM_LINK, "_blank");
-    }
-
-    document.getElementById("leadForm").addEventListener("submit", function(e){
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      const phone = document.getElementById("phone").value;
-
-      // Simple success alert
-      alert("✅ Submitted! We will contact you soon.");
-
-      // Auto redirect to WhatsApp
-      const msg = `Hello, I'm ${name}. My number is ${phone}. I want details.`;
-      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-      window.open(url, "_blank");
-    });
-  </script>
 </body>
 </html>
