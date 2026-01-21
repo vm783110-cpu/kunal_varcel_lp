@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radhika - Landing Page</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
+    body{background:#0b1220;color:#fff;}
+    .container{max-width:420px;margin:auto;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:18px;}
+    .card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:18px;padding:18px;backdrop-filter: blur(10px);}
+    .top{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+    .avatar{width:62px;height:62px;border-radius:50%;border:2px solid rgba(255,255,255,0.25);object-fit:cover;}
+    .name{font-size:18px;font-weight:700;}
+    .tag{font-size:12px;opacity:.85;margin-top:3px;}
+    .headline{font-size:20px;font-weight:800;line-height:1.2;margin:10px 0 8px;}
+    .sub{font-size:13px;opacity:.85;margin-bottom:14px;line-height:1.4;}
+    .badge{display:inline-block;background:rgba(0,255,170,0.12);border:1px solid rgba(0,255,170,0.25);padding:6px 10px;border-radius:999px;font-size:12px;margin-bottom:10px;}
+    .form{display:flex;flex-direction:column;gap:10px;margin-top:10px;}
+    input{width:100%;padding:12px 12px;border-radius:12px;border:1px solid rgba(255,255,255,0.16);background:rgba(0,0,0,0.25);color:#fff;outline:none;}
+    input::placeholder{color:rgba(255,255,255,0.6);}
+    .btn{width:100%;padding:13px;border:none;border-radius:14px;font-weight:800;cursor:pointer;}
+    .btn-primary{background:#00d084;color:#071014;}
+    .btn-primary:hover{opacity:.95;}
+    .btn-wa{background:#25D366;color:#071014;}
+    .btn-tg{background:#229ED9;color:#071014;}
+    .small{font-size:11px;opacity:.75;margin-top:10px;text-align:center;}
+    .footer{margin-top:14px;text-align:center;font-size:12px;opacity:.7;}
+    .divider{height:1px;background:rgba(255,255,255,0.12);margin:14px 0;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+
+      <div class="top">
+        <img src="profile.jpg" class="avatar" alt="profile" />
+        <div>
+          <div class="name">Radhika</div>
+          <div class="tag">Official Landing Page</div>
+        </div>
+      </div>
+
+      <div class="badge">🔥 Limited Time Offer</div>
+      <div class="headline">Get Free Consultation / Demo Now</div>
+      <div class="sub">
+        Apna naam aur number fill karo, hum aapko call/WhatsApp par details bhej denge.
+      </div>
+
+      <form class="form" id="leadForm">
+        <input type="text" id="name" placeholder="Enter Your Name" required />
+        <input type="tel" id="phone" placeholder="Enter Your Mobile Number" required />
+        <button class="btn btn-primary" type="submit">Submit & Get Details</button>
+      </form>
+
+      <div class="divider"></div>
+
+      <button class="btn btn-wa" onclick="openWhatsApp()">📲 WhatsApp Now</button>
+      <div style="height:10px"></div>
+      <button class="btn btn-tg" onclick="openTelegram()">📩 Join Telegram</button>
+
+      <div class="small">By submitting, you agree to be contacted.</div>
+
+    </div>
+
+    <div class="footer">Powered by Vercel</div>
+  </div>
+
+  <script>
+    // 🔥 CHANGE THIS WHATSAPP NUMBER (with country code)
+    const WHATSAPP_NUMBER = "91XXXXXXXXXX";
+
+    // 🔥 CHANGE TELEGRAM LINK
+    const TELEGRAM_LINK = "https://t.me/yourchannel";
+
+    function openWhatsApp(){
+      const name = document.getElementById("name").value || "Hi";
+      const phone = document.getElementById("phone").value || "";
+      const msg = `Hello, I'm ${name}. My number is ${phone}. I want details.`;
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+      window.open(url, "_blank");
+    }
+
+    function openTelegram(){
+      window.open(TELEGRAM_LINK, "_blank");
+    }
+
+    document.getElementById("leadForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+
+      // Simple success alert
+      alert("✅ Submitted! We will contact you soon.");
+
+      // Auto redirect to WhatsApp
+      const msg = `Hello, I'm ${name}. My number is ${phone}. I want details.`;
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+      window.open(url, "_blank");
+    });
+  </script>
+</body>
+</html>
