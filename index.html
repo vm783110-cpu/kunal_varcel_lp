@@ -14,6 +14,7 @@ color:#fff;
 text-align:center;
 }
 
+/* TOP BAR */
 .topbar{
 background:linear-gradient(90deg,#00e5ff,#7b5cff);
 padding:10px;
@@ -57,24 +58,67 @@ max-width:320px;
 color:#cbd5e1;
 }
 
+/* BUTTONS */
 .btn{
 display:flex;
 align-items:center;
 justify-content:center;
 gap:10px;
 margin:15px auto;
-padding:15px;
-width:80%;
-max-width:300px;
-border-radius:50px;
+padding:16px 18px;
+width:85%;
+max-width:330px;
+border-radius:14px;
 font-weight:bold;
 text-decoration:none;
-font-size:16px;
+font-size:17px;
+transition:0.2s ease-in-out;
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 10px 25px rgba(0,0,0,0.35);
 }
 
-.telegram{background:#00e5ff;color:#000}
-.whatsapp{background:#25D366;color:#000}
+/* Telegram Attractive + Blink */
+.telegram{
+background:linear-gradient(90deg,#00e5ff,#7b5cff);
+color:#000;
+position:relative;
+overflow:hidden;
+animation:blinkGlow 0.7s infinite alternate;
+}
 
+.telegram::after{
+content:"";
+position:absolute;
+top:0;
+left:-60%;
+width:50%;
+height:100%;
+background:rgba(255,255,255,0.35);
+transform:skewX(-20deg);
+animation:shine 1.2s infinite;
+}
+
+@keyframes blinkGlow{
+0%{box-shadow:0 0 10px rgba(0,229,255,0.5), 0 0 20px rgba(123,92,255,0.4);}
+100%{box-shadow:0 0 25px rgba(0,229,255,0.95), 0 0 45px rgba(123,92,255,0.9);}
+}
+
+@keyframes shine{
+0%{left:-60%;}
+100%{left:120%;}
+}
+
+/* WhatsApp Attractive */
+.whatsapp{
+background:linear-gradient(90deg,#25D366,#b8ffcc);
+color:#000;
+}
+
+.btn:hover{
+transform:scale(1.03);
+}
+
+/* CARDS */
 .card{
 background:#0b1624;
 border:1px solid #1e293b;
@@ -99,6 +143,7 @@ margin:20px 0;
 font-size:22px;
 }
 
+/* TIMER BOX */
 .timer-box{
 margin:40px auto;
 max-width:320px;
@@ -112,22 +157,6 @@ border:1px solid #1e293b;
 font-size:50px;
 color:#00e5ff;
 margin-top:10px;
-}
-
-.floating{
-position:fixed;
-right:15px;
-bottom:15px;
-background:#00e5ff;
-width:55px;
-height:55px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:bold;
-color:#000;
-text-decoration:none;
 }
 
 footer{
@@ -154,14 +183,14 @@ color:#94a3b8;
 
 <p class="subtitle">Performance-focused ad campaigns for betting, trading, and gaming brands.</p>
 
-<!-- TELEGRAM BUTTON -->
-<a href="https://t.me/YOUR_USERNAME" class="btn telegram" target="_blank">
-📨 Join Telegram
+<!-- TELEGRAM BUTTON (Your Link Added) -->
+<a href="https://t.me/+ypunkHC54F5kNjJl" class="btn telegram" target="_blank">
+🚀 JOIN TELEGRAM NOW
 </a>
 
-<!-- WHATSAPP BUTTON -->
-<a href="https://wa.me/91XXXXXXXXXX" class="btn whatsapp" target="_blank">
-💬 WhatsApp Us
+<!-- WHATSAPP BUTTON (Number + Auto Message Added) -->
+<a href="https://wa.me/918764579055?text=Hello%20Sir%2C%20mujhe%20Ads%20Setup%20karwana%20hai.%20Please%20guide%20kardo." class="btn whatsapp" target="_blank">
+✅ WHATSAPP NOW
 </a>
 
 <div class="card">
@@ -196,13 +225,11 @@ color:#94a3b8;
 
 <div class="timer-box">
 <h3>Free Strategy Call</h3>
-<p>Redirecting in</p>
+<p>Redirecting to Telegram in</p>
 <div id="timer">25</div>
 </div>
 
 </div>
-
-<a href="https://t.me/YOUR_USERNAME" class="floating">✈️</a>
 
 <footer>©️ 2025 Kunal Ads Agency</footer>
 
@@ -216,7 +243,7 @@ timerEl.innerText = time;
 
 if(time<=0){
 clearInterval(interval);
-window.location.href = "https://t.me/YOUR_USERNAME";
+window.location.href = "https://t.me/+ypunkHC54F5kNjJl";
 }
 },1000);
 </script>
